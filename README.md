@@ -11,10 +11,10 @@ It is designed to support multiple environments (Development and Production) wit
 ### Infrastructure Overview
 
 ```mermaid
-graph TB
+flowchart TB
     subgraph GCP [Google Cloud Platform]
         subgraph VPC [VPC Network]
-            direction TB
+
 
             subgraph Public_Subnet [Public Subnet]
                 PublicVM[Public Instance\n(Bastion/Frontend)]
@@ -51,7 +51,7 @@ graph TB
 ### Module Dependencies
 
 ```mermaid
-graph LR
+flowchart LR
     subgraph Environment [Environment: Dev]
         MainTF[main.tf]
     end
