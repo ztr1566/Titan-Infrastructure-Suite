@@ -5,11 +5,11 @@ resource "google_project_service" "sqladmin" {
 }
 
 resource "google_sql_database_instance" "main" {
-  name             = "testing-db-${var.env_name}"
-  database_version = "MYSQL_8_0"
-  region           = var.region
-  depends_on       = [var.vpc_connection]
-
+  name                = "testing-db-${var.env_name}"
+  database_version    = "MYSQL_8_0"
+  region              = var.region
+  depends_on          = [var.vpc_connection]
+  deletion_protection = false
   settings {
     tier              = "db-f1-micro"
     activation_policy = "ALWAYS"

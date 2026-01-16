@@ -4,11 +4,11 @@ resource "google_service_account" "vm_sa" {
 }
 
 resource "google_compute_instance" "vm" {
-  name         = var.instance_name
-  machine_type = var.machine_type
-  zone         = var.zone
-  tags         = var.target_tags
-
+  name                      = var.instance_name
+  machine_type              = var.machine_type
+  zone                      = var.zone
+  tags                      = var.target_tags
+  deletion_protection       = false
   allow_stopping_for_update = true
 
   boot_disk {
