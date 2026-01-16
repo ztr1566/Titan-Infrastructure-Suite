@@ -17,14 +17,14 @@ flowchart TB
 
 
             subgraph Public_Subnet [Public Subnet]
-                PublicVM[Public Instance\n(Bastion/Frontend)]
+                PublicVM["Public Instance\n(Bastion/Frontend)"]
                 NAT[Cloud NAT]
             end
 
             subgraph Private_Subnet [Private Subnet]
-                PrivateVM[Private Instance\n(Internal)]
+                PrivateVM["Private Instance\n(Internal)"]
                 BackendVM[Backend Server]
-                CloudSQL[(Cloud SQL\nDatabase)]
+                CloudSQL[("Cloud SQL\nDatabase")]
             end
 
             PublicVM --> PrivateVM
