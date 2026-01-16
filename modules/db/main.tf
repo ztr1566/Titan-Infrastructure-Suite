@@ -34,8 +34,9 @@ resource "google_sql_user" "db_user" {
 }
 
 
-resource "google_project_iam_member" "cloud_sql_client" {
-  project = "learn-2612"
-  role    = "roles/cloudsql.client"
-  member  = "user:zizoo1566@gmail.com"
+resource "google_project_iam_member" "cloud_sql_client_sa" {
+  for_each = var.authorized_service_accounts
+  project  = "learn-2612"
+  role     = "roles/cloudsql.client"
+  member   = "serviceAccount:${each.value}"
 }

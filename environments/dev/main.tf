@@ -45,6 +45,11 @@ module "database" {
   vpc_id         = module.vpc.vpc_id
   vpc_connection = module.vpc.vpc_connection_id
   db_password    = var.db_password
+
+  authorized_service_accounts = {
+    "private-vm" = module.private_instance.service_account_email,
+    "backend-vm" = module.backend_vm.service_account_email
+  }
 }
 
 module "backend_vm" {

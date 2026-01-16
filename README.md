@@ -74,6 +74,15 @@ flowchart LR
     MainTF -->|Passes: db_host| InstancesModule
 ```
 
+## Security Features
+
+### Identity-Based Access Control
+
+The infrastructure enforces a zero-trust security model using Google Cloud IAM:
+
+- **Dedicated Service Accounts**: Each VM instance (Frontend, Backend, Internal) is provisioned with its own dedicated Service Account (SA) with minimal scopes.
+- **Cloud SQL IAM Authentication**: Database access is strictly controlled via IAM. Only the specific Service Accounts for the Private and Backend VMs are authorized to connect to Cloud SQL. This eliminates the need for managing static database credentials or broad IP whitelisting.
+
 ## Architecture
 
 The project follows a standard modular directory structure:

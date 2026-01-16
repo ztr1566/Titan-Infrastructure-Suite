@@ -9,3 +9,7 @@ output "instance_private_ip" {
 output "db_host" {
   value = var.db_host
 }
+
+output "service_account_email" {
+  value = google_service_account.vm_sa.email
+}

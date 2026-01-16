@@ -15,6 +15,11 @@ variable "vpc_connection" {
 }
 
 variable "db_password" {
-  type = string
+  type      = string
   sensitive = true
+}
+
+variable "authorized_service_accounts" {
+  type    = map(string)
+  default = {}
 }
